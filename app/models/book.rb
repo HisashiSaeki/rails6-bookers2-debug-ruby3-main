@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   has_many :book_comments, dependent: :destroy
 
   def favorited_by?(user)
-    favorites.exists?(user_id: user.id)
+    favorites.exists?
   end
 
   validates :title,presence:true
