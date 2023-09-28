@@ -15,7 +15,7 @@
         <td>フォロワー数: <%= user.followed.count %></td>
         <td>
           <% if current_user != user %>
-            <%= render 'follow_btn', user: user, full: true %>
+            <%= render 'relathionships/follow_btn', user: user, full: true %>
           <% end %>
         </td>
         <td><%= link_to 'Show', user %></td>
