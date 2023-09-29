@@ -25,13 +25,13 @@
     </th>
   </tr>
 </table>
-　
+
 <div class='row'>
   <% if current_user == user %>
     <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
   <% else %>
-    <%= render 'relathionships/follow_btn', user: @user %>
+    <%= render 'relationships/follow_btn', user: @user %>
   <% end %>
 </div>
