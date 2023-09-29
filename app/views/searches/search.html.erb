@@ -1,4 +1,4 @@
-<% if @range == "User" %>
+<% if @model == "User" %>
   <h2>Users search for "<%= @word %>"</h2>
   <%= render "users/index", users: @users %>
 <% else %>
