@@ -10,7 +10,7 @@ class Book < ApplicationRecord
     favorites.exists?
   end
 
-  def self.looks(search, word)
+  def self.search_for(search, word)
     case search
       when "perfect_match" then
         @book = Book.where("title like?", "#{word}")

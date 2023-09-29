@@ -2,9 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="search-form mx-auto">
-      <%= form_with url: "/searche", method: :get do |f| %>
+      <%= form_with url: "/search", method: :get do |f| %>
         <%= f.text_field :word %>
-        <%= f.select :range, ["User", "Book"], selected: "User" %>
+        <%= f.select :model, ["User", "Book"], selected: "User" %>
         <%= f.select :search, [["完全一致", "perfect_match"], ["部分一致", "partial_match"], ["前方一致", "forward_match"], ["後方一致", "backward_match"]], selected: "完全一致" %>
         <%= f.submit "検索" %>
       <% end %>
