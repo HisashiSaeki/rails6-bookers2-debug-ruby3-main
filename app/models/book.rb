@@ -32,6 +32,11 @@ class Book < ApplicationRecord
 
   scope :created_today, -> { where(created_at: Today.all_day) }
   scope :created_yesterday, -> { where(created_at: Yesterday.all_day) }
+  scope :created_2days_ago, -> { where(created_at: 2.days.ago.all_day) }
+  scope :created_3days_ago, -> { where(created_at: 3.days.ago.all_day) }
+  scope :created_4days_ago, -> { where(created_at: 4.days.ago.all_day) }
+  scope :created_5days_ago, -> { where(created_at: 5.days.ago.all_day) }
+  scope :created_6days_ago, -> { where(created_at: 6.days.ago.all_day) }
   scope :created_this_week, -> { where(created_at: Oneweek_before.beginning_of_day..Today.end_of_day) }
   scope :created_last_week, -> { where(created_at: Tweweek_before.beginning_of_day..(Oneweek_before - 1.day).end_of_day) }
 

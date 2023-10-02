@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @book = Book.new
     @posts_today = @books.created_today
     @posts_yesterday = @books.created_yesterday
+    @posts_2days_ago = @books.created_2days_ago
+    @posts_3days_ago = @books.created_3days_ago
+    @posts_4days_ago = @books.created_4days_ago
+    @posts_5days_ago = @books.created_5days_ago
+    @posts_6days_ago = @books.created_6days_ago
     @posts_this_week = @books.created_this_week
     @posts_last_week = @books.created_last_week
   end

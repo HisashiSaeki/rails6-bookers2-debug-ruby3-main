@@ -1,0 +1,25 @@
+<h2>7日間分の投稿数</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>6日前</th>
+      <th>5日前</th>
+      <th>4日前</th>
+      <th>3日前</th>
+      <th>2日前</th>
+      <th>1日前</th>
+      <th>今日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><%= @posts_today.count %></th>
+      <th><%= @posts_yesterday.count %></th>
+      <th><%= @posts_2days_ago.count %></th>
+      <th><%= @posts_3days_ago.count %></th>
+      <th><%= @posts_4days_ago.count %></th>
+      <th><%= @posts_5days_ago.count %></th>
+      <th><%= @posts_6days_ago.count %></th>
+    </tr>
+  </tbody>
+</table>
