@@ -17,7 +17,7 @@
         <td><%= link_to book.title,book %></td>
         <td><%= book.body %></td>
         <% if local_assigns[:full] %>
-          <td id="favorite_btn_<%= book.id %>"><%= render 'favorites/favorite', book: book %></td>
+          <td id="favorite-btn_<%= book.id %>"><%= render 'favorites/favorite', book: book %></td>
           <td>コメント数: <%= book.book_comments.count %></td>
         <% end %>
       </tr>
