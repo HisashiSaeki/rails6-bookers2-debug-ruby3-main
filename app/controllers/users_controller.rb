@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
+    @posts_today = Book.number_of_posts_today(@user)
+    @posts_yesterday = Book.number_of_posts_yesterday(@user)
+    @posts_thisweek = Book.number_of_posts_thisweek(@user)
+    @posts_lastweek = Book.number_of_posts_lastweek(@user)
   end
 
   def index
@@ -22,12 +26,12 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
-  
+
   def follows
     user = User.find(params[:id])
     @users = user.following_user
   end
-  
+
   def followers
     user = User.find(params[:id])
     @users = user.followed_user
