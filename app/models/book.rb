@@ -30,20 +30,9 @@ class Book < ApplicationRecord
   Oneweek_before = Today - 6.day
   Tweweek_before = Oneweek_before - 7.day
 
-  def self.number_of_posts_today(user)
-    Book.where(user_id: user, created_at: Today.all_day).count
-  end
-
-  def self.number_of_posts_yesterday(user)
-    Book.where(user_id: user, created_at: Yesterday.all_day).count
-  end
-
-  def self.number_of_posts_thisweek(user)
-    Book.where(user_id: user, created_at: Oneweek_before.beginning_of_day..Today.end_of_day).count
-  end
-
-  def self.number_of_posts_lastweek(user)
-    Book.where(user_id: user, created_at: Tweweek_before.beginning_of_day..(Oneweek_before - 1.day).end_of_day).count
-  end
+  scope :created_today, -> { where(created_at: Today.all_day) }
+  scope :created_yesterday, -> { where(created_at: Yesterday.all_day) }
+  scope :created_this_week, -> { where(created_at: Oneweek_before.beginning_of_day..Today.end_of_day) }
+  scope :created_last_week, -> { where(created_at: Tweweek_before.beginning_of_day..(Oneweek_before - 1.day).end_of_day) }
 
 end

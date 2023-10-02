@@ -9,14 +9,14 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= @posts_today %></td>
-      <td><%= @posts_yesterday %></td>
+      <td><%= @posts_today.count %></td>
+      <td><%= @posts_yesterday.count %></td>
       <td>
-        <% if @posts_yesterday == 0 %>
-          前日の投稿はありません。
+        <% if @posts_yesterday.count == 0 %>
+          前日の投稿が0のため、計算できません
         <% else %>
-          <% @day_before = @posts_today / @posts_yesterday %>
-          <%= (@day_before*100).round %>%
+          <% @the_day_before = @posts_today.count / @posts_yesterday.count %>
+          <%= (@the_day_before * 100).round %>%
         <% end %>
       </td>
     </tr>
@@ -32,14 +32,14 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= @posts_thisweek %></td>
-      <td><%= @posts_lastweek %></td>
+      <td><%= @posts_this_week.count %></td>
+      <td><%= @posts_last_week.count %></td>
       <td>
-        <% if @posts_lastweek == 0 %>
-          先週の投稿はありません。
+        <% if @posts_last_week.count == 0 %>
+          先週の投稿が0のため、計算できません
         <% else %>
-          <% @week_before = @posts_thisweek / @posts_lastweek %>
-          <%= (@week_before*100).round %>%
+          <% @the_week_before = @posts_this_week.count / @posts_last_week.count %>
+          <%= (@the_week_before*100).round %>%
         <% end %>
       </td>
     </tr>
