@@ -42,15 +42,14 @@ class UsersController < ApplicationController
     @users = user.followed_user
   end
 
-  def search_number_of_posts
-    @user = User.find(params[:id])
+  def daily_posts
+    @user = User.find(params[:user_id])
     @books = @user.books
     @book = Book.new
     if params[:created_at] == ''
       @search_result = "日付を選択してください"
     else
-      create_at = params[:created_at].to_date.strftime('%Y %b %d')
-      @search_result = Book.where("created_at Like ?", create_at).count
+      @search_result = @books.where(created_at: params[:created_at].to_datetime.all_day).count
     end
   end
 

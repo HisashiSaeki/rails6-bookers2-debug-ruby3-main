@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index,:show,:edit,:update] do
     member do
-      get :follows, :followers, :search_number_of_posts
+      get :follows, :followers
     end
     resource :relationships, only:[:create, :destroy]
+    get "daily_posts" => "users#daily_posts"
   end
 
   resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
