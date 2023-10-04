@@ -1,0 +1,10 @@
+<%= form_with url: user_daily_posts_path(@user), method: :get, local: false do |f| %>
+  <%= f.date_field :created_at %>
+  <%= f.submit '検索', class: 'btn btn-info' %>
+<% end %>
+
+<div id="search_result">
+  <% if @search_result.present? %>
+    <%= render 'search_result', search_result: @search_result %>
+  <% end %>
+</div>
