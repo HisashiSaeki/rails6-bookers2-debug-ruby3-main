@@ -9,7 +9,7 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    @books = Book.all
+    @books = Book.includes(:favorites).sort_by{ |book| -book.favorites.count}
   end
 
   def create
